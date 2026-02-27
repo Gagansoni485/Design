@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Responsive-Yes-black?style=flat-square" />
+  <img src="https://github.com/Gagansoni485/Design/blob/main/Screenshot%202026-02-27%20135508.png?raw=true" />
   <img src="https://img.shields.io/badge/UI-Clean-black?style=flat-square" />
   <img src="https://img.shields.io/badge/Focus-AI%2FML-black?style=flat-square" />
 </p>
