@@ -1,0 +1,521 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*::selection {
+  background-color: #fff;
+  color: #95c11e;
+}
+
+body::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #0F0D0D;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #EDBFFF;
+  border-radius: 20px;
+}
+
+/* ── Purple overlay ── */
+#purple {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  background-color: #EDBFFF;
+  opacity: 0;
+  display: none;
+  transition: all ease 1s;
+}
+
+/* ── Custom cursor ── */
+.cursor {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: fixed;
+  background-color: blanchedalmond;
+  z-index: 9999;
+  pointer-events: none;
+  background-position: center;
+  background-size: cover;
+  mix-blend-mode: difference;
+  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease,
+              background-image 0.4s ease;
+}
+
+/* ── Main scroll container ── */
+.main {
+  background-color: #0F0D0D;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════
+   NAV
+══════════════════════════ */
+#nav {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  position: fixed;
+  mix-blend-mode: difference;
+  z-index: 102;
+}
+
+#nav img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+#nav2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+#nav #circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+#nav h4 {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════
+   PAGE 1
+══════════════════════════ */
+.page1 {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 9;
+  padding-top: 12vw;
+  overflow: hidden;
+}
+
+.page1 h1 {
+  font-size: clamp(2rem, 8vw, 8rem);
+  font-weight: 400;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-left: 6vw;
+  line-height: 1.1;
+}
+
+.page1 h2 {
+  font-size: clamp(2rem, 8vw, 8rem);
+  font-weight: 300;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-left: 26vw;
+  line-height: 1.1;
+}
+
+.page1 video {
+  width: 60%;
+  margin-top: 10vw;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: block;
+}
+
+/* ══════════════════════════
+   PAGE 2
+══════════════════════════ */
+.page2 {
+  min-height: 80vh;
+  width: 100%;
+  padding: 100px 5vw;
+  border-bottom: 2px solid #6c6c6c;
+  position: relative;
+  z-index: 9;
+}
+
+.page2 h1 {
+  font-size: clamp(2rem, 7vw, 7rem);
+  font-weight: 300;
+  color: #111;
+  line-height: 1.1;
+}
+
+.page2-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 60px;
+}
+
+.page2-left {
+  width: 38%;
+  flex-shrink: 0;
+}
+
+.page2-right {
+  width: 26%;
+  flex-shrink: 0;
+}
+
+.page2-left h2 {
+  font-size: clamp(1.2rem, 3vw, 3rem);
+  font-weight: 300;
+  color: #111;
+  line-height: 1.4;
+}
+
+.page2-right p {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  color: #111;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.page2-right button {
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  padding: 12px 0;
+  background-color: pink;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page2-right button:hover {
+  background-color: #f7a0b8;
+}
+
+/* ══════════════════════════
+   PAGE 3
+══════════════════════════ */
+.page3 {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 100px;
+  position: relative;
+  z-index: 9;
+}
+
+.page3 h1 {
+  font-size: clamp(2rem, 6.5vw, 6rem);
+  font-weight: 300;
+  color: #111;
+  margin-left: clamp(20px, 6vw, 100px);
+  margin-bottom: 40px;
+}
+
+.page3-part1,
+.page3-part2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 5vw;
+  gap: 40px;
+}
+
+.page3-part1 img,
+.page3-part2 img {
+  height: auto;
+  width: clamp(280px, 38%, 500px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: clamp(40px, 10vw, 200px);
+}
+
+.page3-part1 video,
+.page3-part2 video {
+  height: auto;
+  width: clamp(260px, 38%, 450px);
+  border-radius: 12px;
+  margin-top: clamp(60px, 15vw, 300px);
+}
+
+/* ══════════════════════════
+   PAGE 4
+══════════════════════════ */
+.page4 {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 9;
+  padding: clamp(60px, 9vw, 140px) clamp(20px, 6vw, 100px);
+}
+
+.elem {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px 0;
+}
+
+.elem img {
+  height: clamp(130px, 16vw, 250px);
+  width: clamp(130px, 16vw, 250px);
+  border-radius: 20px;
+  position: absolute;
+  opacity: 0;
+  transition: all ease-out 0.5s;
+  transform: translate(10%) rotate(2deg);
+}
+
+.elem img:nth-child(1) { left: 2%; }
+.elem img:nth-child(3) { right: 10%; }
+
+.text-div {
+  height: clamp(60px, 9vw, 145px);
+  overflow: hidden;
+}
+
+.elem h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: clamp(2.5rem, 7.5vw, 7.5rem);
+  font-weight: 600;
+  transition: all ease-out 0.5s;
+  white-space: nowrap;
+}
+
+.elem:hover h1 {
+  transform: translateY(-100%);
+  color: cyan;
+}
+
+.elem:hover img {
+  opacity: 1;
+  transform: translateY(0%) rotate(0deg);
+}
+
+/* ══════════════════════════
+   PAGE 5
+══════════════════════════ */
+.page5 {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 9;
+  padding: clamp(60px, 9vw, 140px) clamp(20px, 6vw, 100px);
+}
+
+.page5 h2 {
+  font-size: clamp(1.6rem, 4vw, 4rem);
+  font-weight: 400;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 90px;
+  padding: 0 20px;
+  border-top: 2px solid #dadada;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.box:last-child {
+  border-bottom: 2px solid #dadada;
+}
+
+.box h3 {
+  font-size: clamp(1.1rem, 2.5vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.box h4 {
+  font-size: clamp(0.85rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  color: #aaa;
+}
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+#footer {
+  height: 90vh;
+  width: 100%;
+  background-color: bisque;
+}
+
+
+/* ══════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+══════════════════════════════════════ */
+
+/* ── Large tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  .page2-left  { width: 45%; }
+  .page2-right { width: 40%; }
+
+  .page3-part1 img,
+  .page3-part2 img,
+  .page3-part1 video,
+  .page3-part2 video {
+    width: clamp(220px, 44%, 420px);
+  }
+}
+
+/* ── Tablet (≤ 768px) ── */
+@media (max-width: 768px) {
+  /* Nav */
+  #nav {
+    padding: 0 20px;
+  }
+  #nav img { height: 48px; }
+  #nav h4  { font-size: 12px; }
+  #nav2    { gap: 16px; }
+
+  /* Page 1 */
+  .page1 { padding-top: 18vw; }
+  .page1 h2 { margin-left: 14vw; }
+  .page1 video { width: 80%; }
+
+  /* Page 2 */
+  .page2-container {
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 40px;
+  }
+  .page2-left,
+  .page2-right { width: 100%; }
+
+  /* Page 3 */
+  .page3-part1,
+  .page3-part2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px;
+  }
+  .page3-part1 img,
+  .page3-part2 img,
+  .page3-part1 video,
+  .page3-part2 video {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 40px;
+  }
+
+  /* Page 4 */
+  .elem img { display: none; } /* images behind text hidden on touch */
+
+  /* Page 5 */
+  .box {
+    min-height: 72px;
+    padding: 16px 12px;
+  }
+}
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  /* Cursor hidden on touch */
+  .cursor { display: none; }
+
+  /* Nav stacked */
+  #nav {
+    flex-direction: column;
+    height: auto;
+    padding: 14px 20px;
+    gap: 10px;
+    background-color: rgba(15, 13, 13, 0.9);
+    mix-blend-mode: normal; /* needed so bg is visible */
+  }
+  #nav img  { height: 40px; }
+  #nav2     { gap: 12px; flex-wrap: wrap; justify-content: center; }
+  #nav h4   { font-size: 11px; }
+  #nav #circle { display: none; }
+
+  /* Page 1 */
+  .page1 { padding-top: 28vw; }
+  .page1 h1 { font-size: clamp(1.8rem, 10vw, 3.5rem); margin-left: 5vw; }
+  .page1 h2 { font-size: clamp(1.8rem, 10vw, 3.5rem); margin-left: 5vw; }
+  .page1 video { width: 92%; margin-top: 8vw; }
+
+  /* Page 2 */
+  .page2 { padding: 80px 5vw 60px; }
+  .page2 h1 { font-size: clamp(1.8rem, 9vw, 3.5rem); }
+  .page2-left h2 { font-size: clamp(1.1rem, 5.5vw, 2rem); line-height: 1.4; }
+  .page2-right p { font-size: 1rem; }
+
+  /* Page 3 */
+  .page3 h1 { font-size: clamp(1.8rem, 9vw, 3rem); margin-left: 5vw; }
+  .page3-part1,
+  .page3-part2 { padding: 0 16px; gap: 24px; }
+  .page3-part1 img,
+  .page3-part2 img,
+  .page3-part1 video,
+  .page3-part2 video {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  /* Page 4 */
+  .page4 { padding: 60px 16px; }
+  .text-div { height: clamp(44px, 11vw, 80px); }
+  .elem h1  { font-size: clamp(2rem, 10vw, 4rem); }
+  .elem img { display: none; }
+
+  /* Page 5 */
+  .page5 { padding: 60px 16px; }
+  .page5 h2 { font-size: clamp(1.4rem, 6vw, 2.5rem); margin-bottom: 32px; }
+  .box {
+    flex-direction: row;
+    align-items: center;
+    min-height: 64px;
+    padding: 12px 10px;
+    gap: 12px;
+  }
+  .box h3 { font-size: clamp(1rem, 4.5vw, 1.4rem); }
+  .box h4 { font-size: 0.85rem; }
+
+  /* Footer */
+  #footer { height: auto; min-height: 50vh; padding: 40px 20px; }
+}
+
+/* ── Small mobile (≤ 400px) ── */
+@media (max-width: 400px) {
+  .page1 h1,
+  .page1 h2 { font-size: 9.5vw; margin-left: 4vw; }
+  .page2 h1 { font-size: 8.5vw; }
+  .page2-left h2 { font-size: 5.5vw; }
+  .page3 h1 { font-size: 8.5vw; }
+  .elem h1  { font-size: 9.5vw; }
+  .page5 h2 { font-size: 5.5vw; }
+}
