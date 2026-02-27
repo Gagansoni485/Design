@@ -11,21 +11,7 @@
  
 </p>
 
----
 
-## 🖼️ Preview
-
-<p align="center">
-  <img src="./assets/homepage.png" width="85%" alt="Homepage Preview"/>
-</p>
-
-<p align="center">
-  <img src="./assets/services.png" width="85%" alt="Services Section Preview"/>
-</p>
-
-> Add your screenshots inside an `assets` folder in the root directory.
-
----
 
 ## 🎯 About The Project
 
